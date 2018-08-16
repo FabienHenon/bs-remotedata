@@ -2,7 +2,7 @@
 
 `RemoteData` and `WebData` to use with `bs-fetch` and `bs-json` for BuckleScript
 
-![Test status](https://travis-ci.org/FabienHenon/bs-remotedata/settings#)
+![Test status](https://travis-ci.org/FabienHenon/bs-remotedata.svg?branch=master)
 
 `RemoteData.t` is a simple variant type that allows you to store a data that can have 4 potential states:
 
