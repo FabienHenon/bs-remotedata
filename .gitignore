@@ -21,3 +21,9 @@ setup.log
 
 # Merlin configuring file for Vim and Emacs
 .merlin
+
+.vscode
+node_modules/
+
+*.bs.js
+lib/
