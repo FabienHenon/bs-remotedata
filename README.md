@@ -2,6 +2,8 @@
 
 `RemoteData` and `WebData` to use with `bs-fetch` and `bs-json` for BuckleScript
 
+![Test status](https://travis-ci.org/FabienHenon/bs-remotedata/settings#)
+
 `RemoteData.t` is a simple variant type that allows you to store a data that can have 4 potential states:
 
 * `Success('a)`: your data has been successfully retrieved and stored
@@ -61,6 +63,6 @@ Then add `bs-remotedata` to `bs-dependencies` in your `bsconfig.json`:
 
 For the moment, please see the interface files:
 
-* [src/RemoteData.rei](RemoteData)
-* [src/WebData.rei](WebData)
+* [RemoteData](src/RemoteData.rei)
+* [WebData](src/WebData.rei)
 
