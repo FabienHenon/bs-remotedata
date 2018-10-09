@@ -33,13 +33,19 @@ let fromTextResponse = promise =>
   handleResponse(promise, Fetch.Response.text, _ => Js.Promise.resolve);
 
 let handleJsonDecode =
-    (decoder: Js.Json.t => 'a, res: Fetch.Response.t, jsonData: t(Js.Json.t))
+    (
+      decoder: Js.Json.t => Belt.Result.t('a, string),
+      res: Fetch.Response.t,
+      jsonData: t(Js.Json.t),
+    )
     : Js.Promise.t(t('a)) =>
-  (
-    try (RemoteData.map(decoder, jsonData)) {
-    | Json.Decode.DecodeError(err) =>
-      RemoteData.Failure(BadPayload(err, res))
-    }
+  RemoteData.andThen(
+    json =>
+      switch (decoder(json)) {
+      | Belt.Result.Error(err) => RemoteData.Failure(BadPayload(err, res))
+      | Belt.Result.Ok(v) => RemoteData.Success(v)
+      },
+    jsonData,
   )
   |> Js.Promise.resolve;
 
