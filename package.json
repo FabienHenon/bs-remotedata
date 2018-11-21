@@ -1,7 +1,7 @@
 {
   "name": "bs-remotedata",
   "description": "RemoteData and WebData to use with bs-fetch for BuckleScript",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/FabienHenon/bs-remotedata",
   "repository": "https://github.com/FabienHenon/bs-remotedata.git",
   "bugs": "https://github.com/FabienHenon/bs-remotedata/issues",
