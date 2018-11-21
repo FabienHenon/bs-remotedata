@@ -41,10 +41,15 @@ type testType = {
   name: string,
 };
 
-let testTypeDecoder = json =>
+let typeDecoderExn = json =>
   Json.Decode.{
     age: json |> field("age", int),
     name: json |> field("name", string),
+  };
+
+let testTypeDecoder = json =>
+  try (Belt.Result.Ok(typeDecoderExn(json))) {
+  | Json.Decode.DecodeError(err) => Belt.Result.Error(err)
   };
 
 describe("WebData", () => {

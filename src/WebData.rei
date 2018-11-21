@@ -11,4 +11,4 @@ let fromTextResponse:
 
 /* Convert a Fetch promise to a WebData.t with the type returned by the decoder you passed */
 let fromResponse:
-  (Js.Json.t => 'a, Js.Promise.t(Fetch.Response.t)) => Js.Promise.t(t('a));
+  (Js.Json.t => Belt.Result.t('a, string), Js.Promise.t(Fetch.Response.t)) => Js.Promise.t(t('a));
