@@ -19,8 +19,6 @@ The main goal for this type is to be used for HTTP requests. That's where `WebDa
 ## Example
 
 ```reason
-open BsRemotedata
-
 type person = {
   age: int,
   name: string
