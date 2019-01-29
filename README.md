@@ -25,11 +25,16 @@ type person = {
 };
 
 module Decode = {
-  let personDecoder = json =>
+  let personDecoderExn = json =>
     Json.Decode.{
       age: json |> field("age", int),
       name: json |> field("name", string)
     };
+    
+  let personDecoder = json =>
+    try (Belt.Result.Ok(personDecoderExn(json))) {
+    | Json.Decode.DecodeError(err) => Belt.Result.Error(err)
+    };    
 };
 
 /* At app launch say you set your data state to `NotAsked` */
